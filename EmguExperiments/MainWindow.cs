@@ -21,7 +21,7 @@ namespace EmguExperiments
 
         private void basicTranslations_Click(object sender, EventArgs e)
         {
-            
+            DisplayControl(new BasicTransformations.BasicTransform());
         }
 
         private void DisplayControl(UserControl control)
@@ -32,7 +32,9 @@ namespace EmguExperiments
                 currentControl.Dispose();
             }
 
-
+            control.Dock = DockStyle.Fill;
+            contentPanel.Controls.Add(control);
+            currentControl = control;
         }
     }
 }
