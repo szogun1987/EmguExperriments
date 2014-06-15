@@ -34,8 +34,9 @@
             this.openFile = new System.Windows.Forms.Button();
             this.flipHorizontal = new System.Windows.Forms.Button();
             this.flipVertical = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.rotate = new System.Windows.Forms.Button();
+            this.resize = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -43,7 +44,7 @@
             // 
             // imageBox
             // 
-            this.imageBox.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
+            this.imageBox.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.RightClickMenu;
             this.imageBox.Location = new System.Drawing.Point(0, 0);
             this.imageBox.Name = "imageBox";
             this.imageBox.Size = new System.Drawing.Size(75, 23);
@@ -58,10 +59,11 @@
             this.flowLayoutPanel1.Controls.Add(this.flipHorizontal);
             this.flowLayoutPanel1.Controls.Add(this.flipVertical);
             this.flowLayoutPanel1.Controls.Add(this.rotate);
+            this.flowLayoutPanel1.Controls.Add(this.resize);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 342);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 309);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(776, 60);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(776, 93);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // openFile
@@ -94,16 +96,6 @@
             this.flipVertical.UseVisualStyleBackColor = true;
             this.flipVertical.Click += new System.EventHandler(this.flipVertical_Click);
             // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.imageBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 342);
-            this.panel1.TabIndex = 4;
-            // 
             // rotate
             // 
             this.rotate.Location = new System.Drawing.Point(3, 32);
@@ -113,6 +105,26 @@
             this.rotate.Text = "Obrót";
             this.rotate.UseVisualStyleBackColor = true;
             this.rotate.Click += new System.EventHandler(this.rotate_Click);
+            // 
+            // resize
+            // 
+            this.resize.Location = new System.Drawing.Point(259, 32);
+            this.resize.Name = "resize";
+            this.resize.Size = new System.Drawing.Size(250, 23);
+            this.resize.TabIndex = 4;
+            this.resize.Text = "Zmiana rozmiaru";
+            this.resize.UseVisualStyleBackColor = true;
+            this.resize.Click += new System.EventHandler(this.resize_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.imageBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(776, 309);
+            this.panel1.TabIndex = 4;
             // 
             // BasicTransform
             // 
@@ -139,6 +151,7 @@
         private System.Windows.Forms.Button flipVertical;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button rotate;
+        private System.Windows.Forms.Button resize;
 
     }
 }

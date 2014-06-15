@@ -68,6 +68,12 @@
     <Compile Include="BasicTransformations\RotateDialog.Designer.cs">
       <DependentUpon>RotateDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasicTransformations\ScaleDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasicTransformations\ScaleDialog.Designer.cs">
+      <DependentUpon>ScaleDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasicTransformations\RotateDialog.resx">
       <DependentUpon>RotateDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasicTransformations\ScaleDialog.resx">
+      <DependentUpon>ScaleDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

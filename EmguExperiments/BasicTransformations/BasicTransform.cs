@@ -61,5 +61,20 @@ namespace EmguExperiments.BasicTransformations
                 image.Dispose();
             }
         }
+
+        private void resize_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> image = (Image<Bgr, byte>)imageBox.Image;
+            using (var dlg  = new ScaleDialog(image.Width, image.Height))
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                
+                imageBox.Image = image.Resize(dlg.Width, dlg.Height, dlg.Interpolation, dlg.PreserveScale);
+                image.Dispose();
+            }
+        }
     }
 }
