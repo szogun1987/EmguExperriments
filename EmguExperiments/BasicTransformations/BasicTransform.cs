@@ -17,26 +17,21 @@ namespace EmguExperiments.BasicTransformations
         public BasicTransform()
         {
             InitializeComponent();
-            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void openFile_Click(object sender, EventArgs e)
         {
             using (var ofd = new OpenFileDialog())
             {
-                if (ofd.ShowDialog() == DialogResult.OK)
+                ofd.Filter = "Obrazy (*.jpg,*.jpeg,*.png)|*.jpg;*.jpeg;*.png";
+                if (ofd.ShowDialog() != DialogResult.OK)
                 {
-                    Image<Bgr, byte> image = new Image<Bgr, byte>(ofd.FileName);
-                    imageBox1.Image = image;
+                    return;
                 }
-            }
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Image<Bgr, byte> image = imageBox1.Image as Image<Bgr, byte>;
-            image._SmoothGaussian(5);
-            imageBox1.Image = image;
+                Image<Bgr, byte> image = new Image<Bgr, byte>(ofd.FileName);
+                imageBox.Image = image;
+            }
         }
     }
 }
