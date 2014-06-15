@@ -24,6 +24,11 @@ namespace EmguExperiments
             DisplayControl(new BasicTransformations.BasicTransform());
         }
 
+        private void performance_Click(object sender, EventArgs e)
+        {
+            DisplayControl(new Performance.PerformanceTest());
+        }
+
         private void DisplayControl(UserControl control)
         {
             if (currentControl != null)

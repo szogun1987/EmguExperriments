@@ -30,10 +30,11 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.morphology = new System.Windows.Forms.Button();
+            this.performance = new System.Windows.Forms.Button();
             this.basicTranslations = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.morphologic = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -46,7 +47,7 @@
             // 
             this.splitContainer1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -64,7 +65,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.morphology);
+            this.panel1.Controls.Add(this.morphologic);
+            this.panel1.Controls.Add(this.performance);
             this.panel1.Controls.Add(this.basicTranslations);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -72,15 +74,16 @@
             this.panel1.Size = new System.Drawing.Size(210, 417);
             this.panel1.TabIndex = 0;
             // 
-            // morphology
+            // performance
             // 
-            this.morphology.Dock = System.Windows.Forms.DockStyle.Top;
-            this.morphology.Location = new System.Drawing.Point(0, 23);
-            this.morphology.Name = "morphology";
-            this.morphology.Size = new System.Drawing.Size(210, 23);
-            this.morphology.TabIndex = 1;
-            this.morphology.Text = "Filtry morfologiczne";
-            this.morphology.UseVisualStyleBackColor = true;
+            this.performance.Dock = System.Windows.Forms.DockStyle.Top;
+            this.performance.Location = new System.Drawing.Point(0, 23);
+            this.performance.Name = "performance";
+            this.performance.Size = new System.Drawing.Size(210, 23);
+            this.performance.TabIndex = 1;
+            this.performance.Text = "Wydajność";
+            this.performance.UseVisualStyleBackColor = true;
+            this.performance.Click += new System.EventHandler(this.performance_Click);
             // 
             // basicTranslations
             // 
@@ -111,6 +114,16 @@
             this.contentPanel.Size = new System.Drawing.Size(676, 417);
             this.contentPanel.TabIndex = 0;
             // 
+            // morphologic
+            // 
+            this.morphologic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.morphologic.Location = new System.Drawing.Point(0, 46);
+            this.morphologic.Name = "morphologic";
+            this.morphologic.Size = new System.Drawing.Size(210, 23);
+            this.morphologic.TabIndex = 2;
+            this.morphologic.Text = "Filtry morfologiczne";
+            this.morphologic.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,8 +148,9 @@
         private System.Windows.Forms.Button basicTranslations;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button morphology;
+        private System.Windows.Forms.Button performance;
         private System.Windows.Forms.Panel contentPanel;
+        private System.Windows.Forms.Button morphologic;
 
     }
 }
