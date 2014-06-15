@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using System.Drawing.Imaging;
 
 namespace EmguExperiments.Performance
 {
@@ -70,13 +71,27 @@ namespace EmguExperiments.Performance
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            // TODO: Open file
+            using (var bitmap = new Bitmap(fileName))
+            {
+                openFile = stopwatch.Elapsed;
 
-            openFile = stopwatch.Elapsed;
+                for (int row = 0; row < bitmap.Height; row++)
+                {
+                    for (int column = 0; column < bitmap.Width; column++)
+                    {
+                        Color original = bitmap.GetPixel(column, row);
+                        
+                        byte r = (byte)(255 - original.R);
+                        byte g = (byte)(255 - original.G);
+                        byte b = (byte)(255 - original.B);
 
-            // TODO: Operation
+                        Color target = Color.FromArgb(r, g, b);
+                        bitmap.SetPixel(column, row, target);
+                    }
+                }
 
-            operation = stopwatch.Elapsed;
+                operation = stopwatch.Elapsed;
+            }
         }
 
         private void BitmapData(out TimeSpan openFile, out TimeSpan operation)
@@ -84,13 +99,49 @@ namespace EmguExperiments.Performance
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            // TODO: Open file
+            using (var bitmap = new Bitmap(fileName))
+            {
+                openFile = stopwatch.Elapsed;
 
-            openFile = stopwatch.Elapsed;
+                BitmapData bmData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadWrite, bitmap.PixelFormat);
 
-            // TODO: Operation
+                try
+                {
+                    const int RED_PIXEL = 2;
+                    const int GREEN_PIXEL = 1;
+                    const int BLUE_PIXEL = 0;
 
-            operation = stopwatch.Elapsed;
+                    int stride = bmData.Stride;
+                    int bytesPerPixel = (bitmap.PixelFormat == PixelFormat.Format24bppRgb ? 3 : 4);
+
+                    unsafe
+                    {
+                        byte* pixel = (byte*)(void*)bmData.Scan0;
+                        int yMax = bitmap.Height;
+                        int xMax = bitmap.Width;
+
+                        for (int y = 0; y < yMax; y++)
+                        {
+                            int yPos = y * stride;
+                            for (int x = 0; x < xMax; x++)
+                            {
+                                int pos = yPos + (x * bytesPerPixel);
+
+                                pixel[pos + RED_PIXEL] = (byte)(255 - pixel[pos + RED_PIXEL]);
+                                pixel[pos + GREEN_PIXEL] = (byte)(255 - pixel[pos + GREEN_PIXEL]);
+                                pixel[pos + BLUE_PIXEL] = (byte)(255 - pixel[pos + BLUE_PIXEL]);
+                            }
+
+                        }
+                    }
+                }
+                finally
+                {
+                    bitmap.UnlockBits(bmData);
+                }
+
+                operation = stopwatch.Elapsed;
+            }
         }
 
         private void ColorMatrix(out TimeSpan openFile, out TimeSpan operation)
@@ -98,13 +149,37 @@ namespace EmguExperiments.Performance
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            // TODO: Open file
+            using (var bitmap = new Bitmap(fileName))
+            {
+                openFile = stopwatch.Elapsed;
 
-            openFile = stopwatch.Elapsed;
+                using (Bitmap clone = (Bitmap)bitmap.Clone())
+                {
+                    using (Graphics g = Graphics.FromImage(bitmap))
+                    {
 
-            // TODO: Operation
+                        // negation ColorMatrix
+                        ColorMatrix colorMatrix = new ColorMatrix(
+                            new float[][]
+                        {
+                            new float[] {-1, 0, 0, 0, 0},
+                            new float[] {0, -1, 0, 0, 0},
+                            new float[] {0, 0, -1, 0, 0},
+                            new float[] {0, 0, 0, 1, 0},
+                            new float[] {0, 0, 0, 0, 1}
+                        });
 
-            operation = stopwatch.Elapsed;
+                        ImageAttributes attributes = new ImageAttributes();
+
+                        attributes.SetColorMatrix(colorMatrix);
+
+                        g.DrawImage(clone, new Rectangle(0, 0, clone.Width, clone.Height),
+                                    0, 0, clone.Width, clone.Height, GraphicsUnit.Pixel, attributes);
+                    }
+                }
+
+                operation = stopwatch.Elapsed;
+            }
         }
 
         private void PixelAccess(out TimeSpan openFile, out TimeSpan operation)
@@ -116,7 +191,17 @@ namespace EmguExperiments.Performance
             {
                 openFile = stopwatch.Elapsed;
 
-                // TODO: Operation
+                for (int row = 0; row < image.Height; row++)
+                {
+                    for (int column = 0; column < image.Width; column++)
+                    {
+                        var pixel = image[row, column];
+                        pixel.Blue = (byte)(255 - pixel.Blue);
+                        pixel.Green = (byte)(255 - pixel.Green);
+                        pixel.Red = (byte)(255 - pixel.Red);
+                        image[row, column] = pixel;
+                    }
+                }
 
                 operation = stopwatch.Elapsed;
             }
@@ -131,7 +216,19 @@ namespace EmguExperiments.Performance
             {
                 openFile = stopwatch.Elapsed;
 
-                // TODO: Operation
+                for (int row = 0; row < image.Height; row++)
+                {
+                    for (int column = 0; column < image.Width; column++)
+                    {
+                        // 3 kanały Brg
+                        for (int i = 0; i < 3; i++)
+                        {
+                            byte channel = image.Data[row, column, i];
+                            channel = (byte)(255 - channel);
+                            image.Data[row, column, i] = channel;
+                        }
+                    }
+                }
 
                 operation = stopwatch.Elapsed;
             }
