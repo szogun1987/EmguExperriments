@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using Emgu.CV;
+using Emgu.CV.Structure;
 
 namespace EmguExperiments.Performance
 {
@@ -39,28 +41,28 @@ namespace EmguExperiments.Performance
             TimeSpan operation;
 
             SetPixel(out openFile, out operation);
-            setPixelFileOpen.Text = openFile.ToString();
-            setPixelOp.Text = operation.ToString();
+            setPixelFileOpen.Text = openFile.ToString("mm\\:ss\\.fff");
+            setPixelOp.Text = operation.ToString("mm\\:ss\\.fff");
 
             BitmapData(out openFile, out operation);
-            bitmapDataFileOpen.Text = openFile.ToString();
-            bitmapDataOp.Text = operation.ToString();
+            bitmapDataFileOpen.Text = openFile.ToString("mm\\:ss\\.fff");
+            bitmapDataOp.Text = operation.ToString("mm\\:ss\\.fff");
 
             ColorMatrix(out openFile, out operation);
-            colorMatrixFileOpen.Text = openFile.ToString();
-            colorMatrixOp.Text = operation.ToString();
+            colorMatrixFileOpen.Text = openFile.ToString("mm\\:ss\\.fff");
+            colorMatrixOp.Text = operation.ToString("mm\\:ss\\.fff");
 
             PixelAccess(out openFile, out operation);
-            pixelAccessFileOpen.Text = openFile.ToString();
-            pixelAccessOp.Text = operation.ToString();
+            pixelAccessFileOpen.Text = openFile.ToString("mm\\:ss\\.fff");
+            pixelAccessOp.Text = operation.ToString("mm\\:ss\\.fff");
 
             PixelAccessFast(out openFile, out operation);
-            pixelAccessFastFileOpen.Text = openFile.ToString();
-            pixelAccessFastOp.Text = operation.ToString();
+            pixelAccessFastFileOpen.Text = openFile.ToString("mm\\:ss\\.fff");
+            pixelAccessFastOp.Text = operation.ToString("mm\\:ss\\.fff");
 
             NotMethod(out openFile, out operation);
-            notFileOpen.Text = openFile.ToString();
-            notOp.Text = operation.ToString();
+            notFileOpen.Text = openFile.ToString("mm\\:ss\\.fff");
+            notOp.Text = operation.ToString("mm\\:ss\\.fff");
         }
 
         private void SetPixel(out TimeSpan openFile, out TimeSpan operation)
@@ -110,13 +112,14 @@ namespace EmguExperiments.Performance
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            // TODO: Open file
+            using (var image = new Image<Bgr, byte>(fileName))
+            {
+                openFile = stopwatch.Elapsed;
 
-            openFile = stopwatch.Elapsed;
+                // TODO: Operation
 
-            // TODO: Operation
-
-            operation = stopwatch.Elapsed;
+                operation = stopwatch.Elapsed;
+            }
         }
 
         private void PixelAccessFast(out TimeSpan openFile, out TimeSpan operation)
@@ -124,13 +127,14 @@ namespace EmguExperiments.Performance
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            // TODO: Open file
+            using (var image = new Image<Bgr, byte>(fileName))
+            {
+                openFile = stopwatch.Elapsed;
 
-            openFile = stopwatch.Elapsed;
+                // TODO: Operation
 
-            // TODO: Operation
-
-            operation = stopwatch.Elapsed;
+                operation = stopwatch.Elapsed;
+            }
         }
 
         private void NotMethod(out TimeSpan openFile, out TimeSpan operation)
@@ -138,13 +142,14 @@ namespace EmguExperiments.Performance
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            // TODO: Open file
+            using (var image = new Image<Bgr, byte>(fileName))
+            {
+                openFile = stopwatch.Elapsed;
 
-            openFile = stopwatch.Elapsed;
+                image._Not();
 
-            // TODO: Operation
-
-            operation = stopwatch.Elapsed;
+                operation = stopwatch.Elapsed;
+            }
         }
     }
 }
