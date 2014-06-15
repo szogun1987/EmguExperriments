@@ -33,5 +33,19 @@ namespace EmguExperiments.BasicTransformations
                 imageBox.Image = image;
             }
         }
+
+        private void flip_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> image = (Image<Bgr, byte>)imageBox.Image;
+            imageBox.Image = image.Flip(Emgu.CV.CvEnum.FLIP.HORIZONTAL);
+            image.Dispose();
+        }
+
+        private void flipVertical_Click(object sender, EventArgs e)
+        {
+            Image<Bgr, byte> image = (Image<Bgr, byte>)imageBox.Image;
+            imageBox.Image = image.Flip(Emgu.CV.CvEnum.FLIP.VERTICAL);
+            image.Dispose();
+        }
     }
 }
