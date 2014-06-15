@@ -47,5 +47,19 @@ namespace EmguExperiments.BasicTransformations
             imageBox.Image = image.Flip(Emgu.CV.CvEnum.FLIP.VERTICAL);
             image.Dispose();
         }
+
+        private void rotate_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new RotateDialog())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                Image<Bgr, byte> image = (Image<Bgr, byte>)imageBox.Image;
+                imageBox.Image = image.Rotate(dlg.Angle, dlg.Center, dlg.Interpolation, dlg.Background,dlg.Crop);
+                image.Dispose();
+            }
+        }
     }
 }
