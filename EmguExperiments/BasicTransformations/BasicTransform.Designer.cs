@@ -34,17 +34,19 @@
             this.openFile = new System.Windows.Forms.Button();
             this.flipHorizontal = new System.Windows.Forms.Button();
             this.flipVertical = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageBox
             // 
-            this.imageBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageBox.FunctionalMode = Emgu.CV.UI.ImageBox.FunctionalModeOption.Minimum;
             this.imageBox.Location = new System.Drawing.Point(0, 0);
             this.imageBox.Name = "imageBox";
-            this.imageBox.Size = new System.Drawing.Size(724, 342);
+            this.imageBox.Size = new System.Drawing.Size(75, 23);
+            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imageBox.TabIndex = 2;
             this.imageBox.TabStop = false;
             // 
@@ -90,16 +92,28 @@
             this.flipVertical.UseVisualStyleBackColor = true;
             this.flipVertical.Click += new System.EventHandler(this.flipVertical_Click);
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.imageBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(724, 342);
+            this.panel1.TabIndex = 4;
+            // 
             // BasicTransform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.imageBox);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "BasicTransform";
             this.Size = new System.Drawing.Size(724, 402);
             ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -111,6 +125,7 @@
         private System.Windows.Forms.Button openFile;
         private System.Windows.Forms.Button flipHorizontal;
         private System.Windows.Forms.Button flipVertical;
+        private System.Windows.Forms.Panel panel1;
 
     }
 }
