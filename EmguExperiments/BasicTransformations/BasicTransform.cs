@@ -72,7 +72,7 @@ namespace EmguExperiments.BasicTransformations
                     return;
                 }
                 
-                imageBox.Image = image.Resize(dlg.Width, dlg.Height, dlg.Interpolation, dlg.PreserveScale);
+                imageBox.Image = image.Resize(dlg.TargetWidth, dlg.TargetHeight, dlg.Interpolation, dlg.PreserveScale);
                 image.Dispose();
             }
         }

@@ -24,7 +24,7 @@ namespace EmguExperiments.BasicTransformations
             interpolation.SelectedIndex = 0;
         }
 
-        public int Width
+        public int TargetWidth
         {
             get
             {
@@ -32,7 +32,7 @@ namespace EmguExperiments.BasicTransformations
             }
         }
 
-        public int Height
+        public int TargetHeight
         {
             get
             {
