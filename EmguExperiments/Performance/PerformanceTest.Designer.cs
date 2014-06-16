@@ -57,6 +57,7 @@
             this.pixelAccessOp = new System.Windows.Forms.Label();
             this.pixelAccessFastOp = new System.Windows.Forms.Label();
             this.notOp = new System.Windows.Forms.Label();
+            this.btnCopyResults = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -268,6 +269,7 @@
             // panel2
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel2, 7);
+            this.panel2.Controls.Add(this.btnCopyResults);
             this.panel2.Controls.Add(this.run);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 131);
@@ -405,6 +407,16 @@
             this.notOp.TabIndex = 24;
             this.notOp.Text = " ";
             // 
+            // btnCopyResults
+            // 
+            this.btnCopyResults.Location = new System.Drawing.Point(117, 2);
+            this.btnCopyResults.Name = "btnCopyResults";
+            this.btnCopyResults.Size = new System.Drawing.Size(184, 23);
+            this.btnCopyResults.TabIndex = 1;
+            this.btnCopyResults.Text = "Kopiuj wyniki do schowka";
+            this.btnCopyResults.UseVisualStyleBackColor = true;
+            this.btnCopyResults.Click += new System.EventHandler(this.btnCopyResults_Click);
+            // 
             // PerformanceTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,5 +464,6 @@
         private System.Windows.Forms.Label pixelAccessOp;
         private System.Windows.Forms.Label pixelAccessFastOp;
         private System.Windows.Forms.Label notOp;
+        private System.Windows.Forms.Button btnCopyResults;
     }
 }

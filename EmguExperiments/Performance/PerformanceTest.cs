@@ -248,5 +248,48 @@ namespace EmguExperiments.Performance
                 operation = stopwatch.Elapsed;
             }
         }
+
+        private void btnCopyResults_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder(@"<table class=""table"">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan=""3"">GDI+</th>
+      <th colspan=""3"">Emgu CV</th>
+    </tr>
+    <tr>
+      <th>Metoda</th>
+      <th>GetPixel/SetPixel</th>
+      <th>BitmapData</th>
+      <th>ColorMatrix</th>
+      <th>Pixel Access</th>
+      <th>Pixel Access Fast</th>
+      <th>Metoda Not</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Otwarcie pliku</th>");
+            sb.AppendFormat("<td>{0}</td>", setPixelFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", bitmapDataFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", colorMatrixFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", pixelAccessFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", pixelAccessFastFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", notFileOpen.Text);
+            sb.Append(@"</tr>
+    <tr>
+      <th>Wygenerowanie negatywu</th>");
+            sb.AppendFormat("<td>{0}</td>", setPixelFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", bitmapDataFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", colorMatrixFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", pixelAccessFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", pixelAccessFastFileOpen.Text)
+              .AppendFormat("<td>{0}</td>", notFileOpen.Text);
+            sb.Append(@"</tr>
+  </tbody>
+</table>");
+            Clipboard.SetText(sb.ToString());
+        }
     }
 }
