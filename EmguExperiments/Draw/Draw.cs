@@ -52,22 +52,6 @@ namespace EmguExperiments.Draw
             }
         }
 
-        private void circle_Click(object sender, EventArgs e)
-        {
-            using (var dlg = new Circle())
-            {
-                if (dlg.ShowDialog() != DialogResult.OK)
-                {
-                    return;
-                }
-
-                CircleF c = new CircleF(new PointF(dlg.CenterX, dlg.CenterY), dlg.Radius);
-                image.Draw(c, new Bgr(color.BackColor), (int)thickness.Value);
-                
-                imageBox.Invalidate();
-            }
-        }
-
         private void rectangle_Click(object sender, EventArgs e)
         {
             using (var dlg = new Rectangle())
@@ -80,6 +64,49 @@ namespace EmguExperiments.Draw
                 var rect = new System.Drawing.Rectangle(dlg.X, dlg.Y, dlg.TargetWidth, dlg.TargetHeight);
 
                 image.Draw(rect, new Bgr(color.BackColor), (int)thickness.Value);
+
+                imageBox.Invalidate();
+            }
+        }
+
+        private void circle_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new Circle())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                CircleF c = new CircleF(new PointF(dlg.CenterX, dlg.CenterY), dlg.Radius);
+                image.Draw(c, new Bgr(color.BackColor), (int)thickness.Value);
+
+                imageBox.Invalidate();
+            }
+        }
+
+        private void circleViaGdi_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new Circle())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                using (var graphics = Graphics.FromImage(image.Bitmap))
+                {
+                    graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+                    int x = dlg.CenterX - dlg.Radius;
+                    int y = dlg.CenterY - dlg.Radius;
+                    int diameter = dlg.Radius * 2;
+
+                    using (var pen = new Pen(color.BackColor, (int)thickness.Value))
+                    {
+                        graphics.DrawEllipse(pen, x, y, diameter, diameter);
+                    }
+                }
 
                 imageBox.Invalidate();
             }

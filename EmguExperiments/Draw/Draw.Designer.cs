@@ -66,7 +66,7 @@
             // 
             // fillConvexPolygon
             // 
-            this.fillConvexPolygon.Location = new System.Drawing.Point(435, 33);
+            this.fillConvexPolygon.Location = new System.Drawing.Point(574, 4);
             this.fillConvexPolygon.Name = "fillConvexPolygon";
             this.fillConvexPolygon.Size = new System.Drawing.Size(133, 23);
             this.fillConvexPolygon.TabIndex = 8;
@@ -75,12 +75,13 @@
             // 
             // circleViaGdi
             // 
-            this.circleViaGdi.Location = new System.Drawing.Point(435, 4);
+            this.circleViaGdi.Location = new System.Drawing.Point(435, 33);
             this.circleViaGdi.Name = "circleViaGdi";
             this.circleViaGdi.Size = new System.Drawing.Size(133, 23);
             this.circleViaGdi.TabIndex = 7;
             this.circleViaGdi.Text = "Okrąg via GDI+";
             this.circleViaGdi.UseVisualStyleBackColor = true;
+            this.circleViaGdi.Click += new System.EventHandler(this.circleViaGdi_Click);
             // 
             // rectangle
             // 
@@ -139,7 +140,7 @@
             // 
             // circle
             // 
-            this.circle.Location = new System.Drawing.Point(296, 33);
+            this.circle.Location = new System.Drawing.Point(435, 4);
             this.circle.Name = "circle";
             this.circle.Size = new System.Drawing.Size(133, 23);
             this.circle.TabIndex = 6;

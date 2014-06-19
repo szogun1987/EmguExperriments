@@ -44,6 +44,11 @@
             // centerX
             // 
             this.centerX.Location = new System.Drawing.Point(94, 7);
+            this.centerX.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.centerX.Name = "centerX";
             this.centerX.Size = new System.Drawing.Size(120, 20);
             this.centerX.TabIndex = 0;
@@ -51,6 +56,11 @@
             // centerY
             // 
             this.centerY.Location = new System.Drawing.Point(94, 33);
+            this.centerY.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.centerY.Name = "centerY";
             this.centerY.Size = new System.Drawing.Size(120, 20);
             this.centerY.TabIndex = 1;
@@ -58,6 +68,11 @@
             // radius
             // 
             this.radius.Location = new System.Drawing.Point(94, 59);
+            this.radius.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.radius.Name = "radius";
             this.radius.Size = new System.Drawing.Size(120, 20);
             this.radius.TabIndex = 2;
