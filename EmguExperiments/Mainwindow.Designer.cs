@@ -34,7 +34,7 @@
             this.basicTranslations = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.contentPanel = new System.Windows.Forms.Panel();
-            this.morphologic = new System.Windows.Forms.Button();
+            this.drawing = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,7 +65,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.morphologic);
+            this.panel1.Controls.Add(this.drawing);
             this.panel1.Controls.Add(this.performance);
             this.panel1.Controls.Add(this.basicTranslations);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -114,15 +114,16 @@
             this.contentPanel.Size = new System.Drawing.Size(676, 417);
             this.contentPanel.TabIndex = 0;
             // 
-            // morphologic
+            // drawing
             // 
-            this.morphologic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.morphologic.Location = new System.Drawing.Point(0, 46);
-            this.morphologic.Name = "morphologic";
-            this.morphologic.Size = new System.Drawing.Size(210, 23);
-            this.morphologic.TabIndex = 2;
-            this.morphologic.Text = "Filtry morfologiczne";
-            this.morphologic.UseVisualStyleBackColor = true;
+            this.drawing.Dock = System.Windows.Forms.DockStyle.Top;
+            this.drawing.Location = new System.Drawing.Point(0, 46);
+            this.drawing.Name = "drawing";
+            this.drawing.Size = new System.Drawing.Size(210, 23);
+            this.drawing.TabIndex = 2;
+            this.drawing.Text = "Rysowanie";
+            this.drawing.UseVisualStyleBackColor = true;
+            this.drawing.Click += new System.EventHandler(this.drawing_Click);
             // 
             // MainWindow
             // 
@@ -150,7 +151,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button performance;
         private System.Windows.Forms.Panel contentPanel;
-        private System.Windows.Forms.Button morphologic;
+        private System.Windows.Forms.Button drawing;
 
     }
 }

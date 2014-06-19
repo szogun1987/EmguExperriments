@@ -76,6 +76,18 @@
     <Compile Include="BasicTransformations\ScaleDialog.Designer.cs">
       <DependentUpon>ScaleDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Draw\Draw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Draw\Draw.Designer.cs">
+      <DependentUpon>Draw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Draw\NewPic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Draw\NewPic.Designer.cs">
+      <DependentUpon>NewPic.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasicTransformations\ScaleDialog.resx">
       <DependentUpon>ScaleDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Draw\Draw.resx">
+      <DependentUpon>Draw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Draw\NewPic.resx">
+      <DependentUpon>NewPic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
