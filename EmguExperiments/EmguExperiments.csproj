@@ -76,6 +76,12 @@
     <Compile Include="BasicTransformations\ScaleDialog.Designer.cs">
       <DependentUpon>ScaleDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Draw\Circle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Draw\Circle.Designer.cs">
+      <DependentUpon>Circle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Draw\Draw.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasicTransformations\ScaleDialog.resx">
       <DependentUpon>ScaleDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Draw\Circle.resx">
+      <DependentUpon>Circle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Draw\Draw.resx">
       <DependentUpon>Draw.cs</DependentUpon>
