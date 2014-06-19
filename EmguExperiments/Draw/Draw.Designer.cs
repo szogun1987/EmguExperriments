@@ -84,10 +84,10 @@
             // 
             // rectangle
             // 
-            this.rectangle.Location = new System.Drawing.Point(296, 33);
+            this.rectangle.Location = new System.Drawing.Point(296, 4);
             this.rectangle.Name = "rectangle";
             this.rectangle.Size = new System.Drawing.Size(133, 23);
-            this.rectangle.TabIndex = 6;
+            this.rectangle.TabIndex = 1;
             this.rectangle.Text = "Prostokąt";
             this.rectangle.UseVisualStyleBackColor = true;
             this.rectangle.Click += new System.EventHandler(this.rectangle_Click);
@@ -139,10 +139,10 @@
             // 
             // circle
             // 
-            this.circle.Location = new System.Drawing.Point(296, 4);
+            this.circle.Location = new System.Drawing.Point(296, 33);
             this.circle.Name = "circle";
             this.circle.Size = new System.Drawing.Size(133, 23);
-            this.circle.TabIndex = 1;
+            this.circle.TabIndex = 6;
             this.circle.Text = "Okrąg";
             this.circle.UseVisualStyleBackColor = true;
             this.circle.Click += new System.EventHandler(this.circle_Click);
