@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.fillConvexPolygon = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.circleViaGdi = new System.Windows.Forms.Button();
+            this.rectangle = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.thickness = new System.Windows.Forms.NumericUpDown();
@@ -50,8 +50,8 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.fillConvexPolygon);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.circleViaGdi);
+            this.panel1.Controls.Add(this.rectangle);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.thickness);
@@ -73,23 +73,24 @@
             this.fillConvexPolygon.Text = "Powłoka wypukła";
             this.fillConvexPolygon.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // circleViaGdi
             // 
-            this.button2.Location = new System.Drawing.Point(435, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Okrąg via GDI+";
-            this.button2.UseVisualStyleBackColor = true;
+            this.circleViaGdi.Location = new System.Drawing.Point(435, 4);
+            this.circleViaGdi.Name = "circleViaGdi";
+            this.circleViaGdi.Size = new System.Drawing.Size(133, 23);
+            this.circleViaGdi.TabIndex = 7;
+            this.circleViaGdi.Text = "Okrąg via GDI+";
+            this.circleViaGdi.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // rectangle
             // 
-            this.button1.Location = new System.Drawing.Point(296, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Prostokąt";
-            this.button1.UseVisualStyleBackColor = true;
+            this.rectangle.Location = new System.Drawing.Point(296, 33);
+            this.rectangle.Name = "rectangle";
+            this.rectangle.Size = new System.Drawing.Size(133, 23);
+            this.rectangle.TabIndex = 6;
+            this.rectangle.Text = "Prostokąt";
+            this.rectangle.UseVisualStyleBackColor = true;
+            this.rectangle.Click += new System.EventHandler(this.rectangle_Click);
             // 
             // label2
             // 
@@ -206,8 +207,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown thickness;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button rectangle;
+        private System.Windows.Forms.Button circleViaGdi;
         private System.Windows.Forms.Button fillConvexPolygon;
     }
 }

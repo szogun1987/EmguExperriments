@@ -67,5 +67,22 @@ namespace EmguExperiments.Draw
                 imageBox.Invalidate();
             }
         }
+
+        private void rectangle_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new Rectangle())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                var rect = new System.Drawing.Rectangle(dlg.X, dlg.Y, dlg.TargetWidth, dlg.TargetHeight);
+
+                image.Draw(rect, new Bgr(color.BackColor), (int)thickness.Value);
+
+                imageBox.Invalidate();
+            }
+        }
     }
 }
