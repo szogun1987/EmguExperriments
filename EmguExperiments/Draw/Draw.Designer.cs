@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.polylinie = new System.Windows.Forms.Button();
             this.fillConvexPolygon = new System.Windows.Forms.Button();
             this.circleViaGdi = new System.Windows.Forms.Button();
             this.rectangle = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.polylinie);
             this.panel1.Controls.Add(this.fillConvexPolygon);
             this.panel1.Controls.Add(this.circleViaGdi);
             this.panel1.Controls.Add(this.rectangle);
@@ -64,14 +66,25 @@
             this.panel1.Size = new System.Drawing.Size(833, 72);
             this.panel1.TabIndex = 0;
             // 
+            // polylinie
+            // 
+            this.polylinie.Location = new System.Drawing.Point(574, 3);
+            this.polylinie.Name = "polylinie";
+            this.polylinie.Size = new System.Drawing.Size(133, 23);
+            this.polylinie.TabIndex = 8;
+            this.polylinie.Text = "Wielokąt";
+            this.polylinie.UseVisualStyleBackColor = true;
+            this.polylinie.Click += new System.EventHandler(this.polylinie_Click);
+            // 
             // fillConvexPolygon
             // 
-            this.fillConvexPolygon.Location = new System.Drawing.Point(574, 4);
+            this.fillConvexPolygon.Location = new System.Drawing.Point(574, 33);
             this.fillConvexPolygon.Name = "fillConvexPolygon";
             this.fillConvexPolygon.Size = new System.Drawing.Size(133, 23);
-            this.fillConvexPolygon.TabIndex = 8;
-            this.fillConvexPolygon.Text = "Powłoka wypukła";
+            this.fillConvexPolygon.TabIndex = 9;
+            this.fillConvexPolygon.Text = "Wielokąt wypukły";
             this.fillConvexPolygon.UseVisualStyleBackColor = true;
+            this.fillConvexPolygon.Click += new System.EventHandler(this.fillConvexPolygon_Click);
             // 
             // circleViaGdi
             // 
@@ -211,5 +224,6 @@
         private System.Windows.Forms.Button rectangle;
         private System.Windows.Forms.Button circleViaGdi;
         private System.Windows.Forms.Button fillConvexPolygon;
+        private System.Windows.Forms.Button polylinie;
     }
 }

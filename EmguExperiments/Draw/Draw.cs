@@ -111,5 +111,36 @@ namespace EmguExperiments.Draw
                 imageBox.Invalidate();
             }
         }
+
+        private void polylinie_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new Multipoint())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                var points = dlg.Points.Select(o => new Point(o.X, o.Y)).ToArray();
+
+                image.DrawPolyline(points, true, new Bgr(color.BackColor), (int)thickness.Value);
+            }
+            imageBox.Invalidate();
+        }
+
+        private void fillConvexPolygon_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new Multipoint())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                var points = dlg.Points.Select(o => new Point(o.X, o.Y)).ToArray();
+                image.FillConvexPoly(points, new Bgr(color.BackColor));
+            }
+            imageBox.Invalidate();
+        }
     }
 }
