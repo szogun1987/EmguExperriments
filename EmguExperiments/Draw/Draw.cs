@@ -112,6 +112,26 @@ namespace EmguExperiments.Draw
             }
         }
 
+        private void circleViaCvInvoke_Click(object sender, EventArgs e)
+        {
+            using (var dlg = new Circle())
+            {
+                if (dlg.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                var center = new Point(dlg.CenterX, dlg.CenterY);
+                int radius = dlg.Radius;
+                var color = new Bgr(this.color.BackColor);
+                int thickness = (int)this.thickness.Value;
+                
+                CvInvoke.cvCircle(image.Ptr, center, radius, color.MCvScalar, thickness, Emgu.CV.CvEnum.LINE_TYPE.CV_AA, 0);
+
+                imageBox.Invalidate();
+            }
+        }
+
         private void polylinie_Click(object sender, EventArgs e)
         {
             using (var dlg = new Multipoint())

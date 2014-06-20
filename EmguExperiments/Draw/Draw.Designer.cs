@@ -42,6 +42,7 @@
             this.newPicture = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.imageBox = new Emgu.CV.UI.ImageBox();
+            this.circleViaCvInvoke = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.panel2.SuspendLayout();
@@ -50,6 +51,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.circleViaCvInvoke);
             this.panel1.Controls.Add(this.polylinie);
             this.panel1.Controls.Add(this.fillConvexPolygon);
             this.panel1.Controls.Add(this.circleViaGdi);
@@ -63,15 +65,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(833, 72);
+            this.panel1.Size = new System.Drawing.Size(833, 95);
             this.panel1.TabIndex = 0;
             // 
             // polylinie
             // 
-            this.polylinie.Location = new System.Drawing.Point(574, 3);
+            this.polylinie.Location = new System.Drawing.Point(574, 4);
             this.polylinie.Name = "polylinie";
             this.polylinie.Size = new System.Drawing.Size(133, 23);
-            this.polylinie.TabIndex = 8;
+            this.polylinie.TabIndex = 9;
             this.polylinie.Text = "Wielokąt";
             this.polylinie.UseVisualStyleBackColor = true;
             this.polylinie.Click += new System.EventHandler(this.polylinie_Click);
@@ -81,7 +83,7 @@
             this.fillConvexPolygon.Location = new System.Drawing.Point(574, 33);
             this.fillConvexPolygon.Name = "fillConvexPolygon";
             this.fillConvexPolygon.Size = new System.Drawing.Size(133, 23);
-            this.fillConvexPolygon.TabIndex = 9;
+            this.fillConvexPolygon.TabIndex = 10;
             this.fillConvexPolygon.Text = "Wielokąt wypukły";
             this.fillConvexPolygon.UseVisualStyleBackColor = true;
             this.fillConvexPolygon.Click += new System.EventHandler(this.fillConvexPolygon_Click);
@@ -177,9 +179,9 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.imageBox);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 72);
+            this.panel2.Location = new System.Drawing.Point(0, 95);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(833, 356);
+            this.panel2.Size = new System.Drawing.Size(833, 333);
             this.panel2.TabIndex = 1;
             // 
             // imageBox
@@ -191,6 +193,16 @@
             this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imageBox.TabIndex = 2;
             this.imageBox.TabStop = false;
+            // 
+            // circleViaCvInvoke
+            // 
+            this.circleViaCvInvoke.Location = new System.Drawing.Point(435, 63);
+            this.circleViaCvInvoke.Name = "circleViaCvInvoke";
+            this.circleViaCvInvoke.Size = new System.Drawing.Size(133, 23);
+            this.circleViaCvInvoke.TabIndex = 8;
+            this.circleViaCvInvoke.Text = "Okrąg via cvInvoke";
+            this.circleViaCvInvoke.UseVisualStyleBackColor = true;
+            this.circleViaCvInvoke.Click += new System.EventHandler(this.circleViaCvInvoke_Click);
             // 
             // Draw
             // 
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Button circleViaGdi;
         private System.Windows.Forms.Button fillConvexPolygon;
         private System.Windows.Forms.Button polylinie;
+        private System.Windows.Forms.Button circleViaCvInvoke;
     }
 }
