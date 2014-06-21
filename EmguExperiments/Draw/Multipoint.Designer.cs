@@ -42,6 +42,7 @@
             // 
             // points
             // 
+            this.points.DisplayMember = "Description";
             this.points.FormattingEnabled = true;
             this.points.Location = new System.Drawing.Point(12, 12);
             this.points.Name = "points";

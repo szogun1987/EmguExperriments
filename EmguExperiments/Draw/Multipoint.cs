@@ -38,7 +38,7 @@ namespace EmguExperiments.Draw
             {
                 pointX.DataBindings.Add("Value", selected, "X");
                 pointY.DataBindings.Add("Value", selected, "Y");
-            }           
+            }
         }
 
         public List<Point> Points
@@ -55,7 +55,49 @@ namespace EmguExperiments.Draw
 
             private int y;
 
+            private string description;
+
             public event PropertyChangedEventHandler PropertyChanged;
+
+            public Point()
+            {
+                ComputeDesc();
+            }
+
+            public int X
+            {
+                get { return x; }
+                set 
+                {
+                    x = value;
+                    OnPropertyChanged();
+                    ComputeDesc();
+                }
+            }
+
+            public int Y
+            {
+                get { return y; }
+                set 
+                {
+                    y = value;
+                    OnPropertyChanged();
+                    ComputeDesc();
+                }
+            }
+
+            public string Description
+            {
+                get
+                {
+                    return description;
+                }
+                set
+                {
+                    description = value;
+                    OnPropertyChanged();
+                }
+            }
 
             protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
             {
@@ -66,29 +108,9 @@ namespace EmguExperiments.Draw
                 }
             }
 
-            public int X
+            private void ComputeDesc()
             {
-                get { return x; }
-                set 
-                {
-                    OnPropertyChanged();
-                    x = value; 
-                }
-            }
-
-            public int Y
-            {
-                get { return y; }
-                set 
-                {
-                    OnPropertyChanged();
-                    y = value; 
-                }
-            }
-
-            public override string ToString()
-            {
-                return string.Format("[{0}:{1}]", X, Y);
+                Description = string.Format("[{0};{1}]", X, Y);
             }
         }
     }
